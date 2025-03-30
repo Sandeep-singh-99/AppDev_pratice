@@ -3,6 +3,8 @@ import { Text, View, StyleSheet, TextInput, TouchableOpacity, FlatList, Alert } 
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Ionicons } from '@expo/vector-icons';
 
+import { Inter_500Medium, useFonts } from "@expo-google-fonts/inter";
+
 export default function Index() {
   const [task, setTask] = useState("");
   const [tasks, setTasks] = useState([
@@ -10,6 +12,10 @@ export default function Index() {
     { id: "2", title: "Build CRUD App", completed: true },
     { id: "3", title: "Deploy to App Store", completed: false },
   ]);
+
+  const [loaded, error] = useFonts({
+    Inter_500Medium, 
+  })
   
   const addTask = () => {
     if (task.trim() === "") {
@@ -165,7 +171,8 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.1,
     shadowRadius: 2,
-    elevation: 1
+    elevation: 1,
+    fontFamily: 'Inter_500Medium'
   },
   checkboxContainer: {
     marginRight: 12,
@@ -186,7 +193,8 @@ const styles = StyleSheet.create({
   taskTitle: {
     flex: 1,
     fontSize: 16,
-    color: "#333"
+    color: "#333",
+    fontFamily: "Inter_500Medium"
   },
   completedTask: {
     textDecorationLine: "line-through",
